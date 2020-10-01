@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-    {{ character }}
+    {{ this.data.data }}
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
   },
   data() {
     return {
+      data: null,
       character: null
     };
   },
@@ -30,9 +31,9 @@ export default {
     };
     fetch("http://localhost:8080/api/v1/assets/55e4d9390d42e03905934ad4?filter[categories]=Game%20of%20Thrones", { headers })
     .then(response => response.json())
-    .then(data => (this.character = data.total));
+    .then(data => (this.data = data));
   }
-  /* beforeMount() {
+   /*beforeMount() {
     this.getName();
   },
   methods: {
