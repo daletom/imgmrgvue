@@ -8,7 +8,7 @@ axios.interceptors.request.use(
     return {
       ...config,
       headers: {
-        Authorization: "29250f0436aaedc6e03a725b5b39a45b4d248a684a7003a47e301903c1298002",
+        Authorization: "apikey 29250f0436aaedc6e03a725b5b39a45b4d248a684a7003a47e301903c1298002",
         'Access-Control-Allow-Origin': "*",
         'Access-Control-Allow-Methods': "GET, POST, PATCH, PUT, DELETE, OPTIONS",
         'Access-Control-Allow-Headers': "Origin, Content-Type, X-Auth-Token"
