@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-    {{ data }}
+    {{ character }}
     </div>
   </div>
 </template>
@@ -18,10 +18,21 @@ export default {
   },
   data() {
     return {
-      data: {}
+      character: null
     };
   },
-  beforeMount() {
+  created() {
+    const headers = {
+      Authorization: "apikey 29250f0436aaedc6e03a725b5b39a45b4d248a684a7003a47e301903c1298002",
+      'Access-Control-Allow-Origin': "*",
+      'Access-Control-Allow-Methods': "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+      'Access-Control-Allow-Headers': "Origin, Content-Type, X-Auth-Token"
+    };
+    fetch("http://localhost:8080/api/v1/assets/55e4d9390d42e03905934ad4?filter[categories]=Game%20of%20Thrones", { headers })
+    .then(response => response.json())
+    .then(data => (this.character = data.total));
+  }
+  /* beforeMount() {
     this.getName();
   },
   methods: {
@@ -33,6 +44,6 @@ export default {
       });
       this.data = character;
     }
-  }
+  }*/
 };
 </script>
